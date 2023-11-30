@@ -12,16 +12,26 @@
 </head>
 <body>
   <!--NavBar-->
-  <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-    <ul class="navbar-nav mr-auto">
-        <li class="nav-item ">
-          <a class="nav-link" href="index.html">Home</a>
-        </li>
-        <li class="nav-item active">
-            <a class="nav-link text-light" href="IPO.html">IPO</a>
-          </li>
-    </ul>
-  </nav>
+  <nav class="navbar navbar-expand-lg custom-navbar">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="index.html"><img style="height:50px;" src="/imagens/logo.png"> </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link" href="#">Empresas</a>
+                <a class="nav-link" href="#">Particulares</a>
+            </div>
+
+        </div>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link" href="conta.html"><img style="height:30px;" src="imagens/log-in_icon.png"></a>
+            </div>
+        </div>
+    </div>
+</nav>
 
   <!--Form para o orçamento-->
   <form class="container needs-validation mt-3" action="http://192.168.160.36/FormEcho.aspx" novalidate>
@@ -71,8 +81,8 @@
             <div class="invalid-feedback"> Seleciona uma opção!</div>
           </div>
     <div class="container mt-3">
-      <input type="submit" class="btn btn-primary" value="Submeter">
-      <input type="reset" class="btn btn-secondary" value="Limpar campos">
+      <input type="submit" class="btn btn-primary item-wr" value="Submeter">
+      <input type="reset" class="btn btn-secondary item-wr" value="Limpar campos">
     </div>
   </form>
 

@@ -11,52 +11,97 @@
   <link href="style.css" rel="stylesheet">
 </head>
 <body>
-    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link text-light" href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="orçamento.html">Orçamento</a>
-              </li>
-        </ul>
+    <nav class="navbar navbar-expand-lg custom-navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html"><img style="height:50px;" src="/imagens/logo.png"> </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link" href="orçamento.html">Orçamentos</a>
+                    <a class="nav-link" href="#">Empresas</a>
+                </div>
+
+            </div>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link" href="#">Log in</a>
+                    <a class="nav-link" href="#">Sign-Up</a>
+                    <a class="nav-link" href="conta.html"><img style="height:30px;" src="imagens/log-in_icon.png"></a>
+                </div>
+            </div>
+        </div>
     </nav>
-    <div class="container row mt-3 my-auto">
-        <div class="container col-4">
-            <div class="card">
-                <div class="card-header">Orçamentos</div>
-                <div class="card-body">
-                    <span>Peça já um orçamento para a sua viatura</span>
-                    <form action="orçamento.html">
-                        <input type="submit" class="btn btn-secondary text-light" value="Pedir" />
-                    </form>
-                </div>
+    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="/imagens/r8.jpg" class="d-block w-100" style="background-size:cover; height:450px" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="/imagens/buggati do paulo.jpg" class="d-block w-100" style="background-size:cover; height:450px" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="/imagens/i8.jpg" class="d-block w-100" style="background-size:cover; height:450px" alt="...">
             </div>
         </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    <br/>
+    <div class="container">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="col">
+                <div class="card h-100">
+                    <div class="card-header">
+                        <div class="card-title">IPO</div>
+                    </div>
+                    <div class="card-body">
+                        <span>Pedir serviço de IPO</span>    
+                            
+                        <form action="IPO.html">
+                            <input type="submit" class="btn btn-light item-wr" value="Agendar >" />
+                        </form>
+                    </div>
+                </div>
+            </div>
 
-        <div class="container col-4">
-            <div class="card">
-                <div class="card-header">IPO</div>
-                <div class="card-body">
-                    <span>Pedir serviço de IPO</span>
-                    <form action="IPO.html">
-                        <input type="submit" class="btn btn-secondary text-light" value="Pedir" />
-                    </form>
-                </div>
-            </div>
-        </div>
 
-        <div class="container col-4">
-            <div class="card">
-                <div class="card-header">Marcação</div>
-                <div class="card-body">
-                    <span>Fazer marcação</span>
-                    <form action="#">
-                        <input type="submit" class="btn btn-secondary text-light" value="Pedir" />
-                    </form>
+            <div class="col">
+                <div class="card h-100">
+                    <div class="card-header">
+                        <div class="card-title">Marcações</div>
+                    </div>
+                    <div class="card-body">
+                        <span>Fazer marcação</span>
+                        <form action="#">
+                            <input type="submit" class="btn btn-light item-wr" value="Agendar >" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <div class="card-header" >
+                        <div class="card-title">Orçamentos</div>
+                    </div>
+                    <div class="card-body">
+                        <span>Peça já um orçamento para a sua viatura</span>
+                        <form action="orçamento.html">
+                            <input type="submit" class="btn btn-light item-wr" value="Agendar >"/>
+                        </form>
+                    </div>
+                    </div>
                 </div>
             </div>
         </div>
+        <br/>
     </div>
     
   <!--Scripts-->

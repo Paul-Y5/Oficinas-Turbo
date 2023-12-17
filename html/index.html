@@ -6,6 +6,8 @@
   <title>Turbo - Home page</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.5.1/css/all.css">
+
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
   <link href="../css/style.css" rel="stylesheet">
@@ -26,8 +28,8 @@
             </div>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
                 <div class="navbar-nav">      
-                    <a class="nav-link" href="SINGUP-Login.html">Log in</a>
-                    <a class="nav-link" href="SINGUP-Login.html">Sign-Up</a>
+                    <!-- Correct for Bootstrap 5 -->
+                    <button class="nav-link" data-bs-toggle="modal" data-bs-target="#modal">Sign in/ SIgn Up</button>
                     <a class="nav-link" href="conta.html"><img style="height:30px;" src="./imagens/log-in_icon.png"></a>
                 </div>
             </div>
@@ -103,6 +105,123 @@
         </div>
         <br/>
     </div>
+    <!-- Modal -->
+    <div class="modal" id="modal" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+                <nav>
+                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                        <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Sign In</button>
+                        <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Sign Up</button>
+                    </div>
+                </nav>
+            </div>
+            <div class="modal-body">
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
+                        <div class="container">
+                            <form>
+                                <!-- Email input -->
+                                <div class="form-outline mb-4">
+                                    <label class="form-label" for="registerEmail">Email</label>
+                                    <input type="email" id="registerEmail" class="form-control" />
+                                </div>
+                        
+                                <!-- Password input -->
+                                <div class="form-outline mb-4">
+                                    <label class="form-label" for="registerPassword">Password</label>
+                                    <input type="password" id="registerPassword" class="form-control" />
+                                </div>
+                                
+                                <p class="text-center">or:</p>
+                                <div class="row mb-3 justify-content-center">
+                                    <div class="col-3">
+                                        <button type="button" class="btn btn-link btn-floating mx-1"><i class="fab fa-facebook-f"></i></button>
+                                    </div>
+                                    <div class="col-3">
+                                        <button type="button" class="btn btn-link btn-floating mx-1"><i class="fab fa-google"></i></button>
+                                    </div>
+                                    <div class="col-3">
+                                        <button type="button" class="btn btn-link btn-floating mx-1"><i class="fab fa-twitter"></i></button>
+                                    </div>
+                                    <div class="col-3">
+                                        <button type="button" class="btn btn-link btn-floating mx-1"><i class="fab fa-apple"></i></button>
+                                    </div>
+                                </div>
+                                <!-- Submit button -->
+                                <div class="row">   
+                                    <button type="submit" class="btn btn-primary btn-block mb-3">Sign in</button>
+                                    <button type="reset" class="btn btn-secundary btn-block mb-3">Clear</button>
+                                </div> 
+                            </form>
+                        </div>    
+                    </div>
+                        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
+                            <div class="container">
+                            <form>                        
+                                <!-- Name input -->
+                                <div class="form-outline mb-4">
+                                    <label class="form-label" for="registerName">Name</label>
+                                    <input type="text" id="registerName" class="form-control" />
+                                </div>
+                                
+                                <!-- Número de telemóvel -->
+                                <div class="form-outline mb-4">
+                                    <label class="form-label" for="registerRepeatPassword">Phone Number</label>
+                                    <input type="password" id="registerRepeatPassword" class="form-control" />
+                                </div>
+                                <!-- Adress -->
+                                <div class="form-outline mb-4">
+                                    <label class="form-label" for="registerRepeatPassword">Adress</label>
+                                    <input type="password" id="registerRepeatPassword" class="form-control" />
+                                </div>
+                                <!-- Username input -->
+                                <div class="form-outline mb-4">
+                                    <label class="form-label" for="registerUsername">Username</label>
+                                    <input type="text" id="registerUsername" class="form-control" />
+                                </div>
+                                
+                                <!-- Email input -->
+                                <div class="form-outline mb-4">
+                                    <label class="form-label" for="registerEmail">Email</label>
+                                    <input type="email" id="registerEmail" class="form-control" />
+                                </div>
+                        
+                                <!-- Password input -->
+                                <div class="form-outline mb-4">
+                                    <label class="form-label" for="registerPassword">Password</label>
+                                    <input type="password" id="registerPassword" class="form-control" />
+                                </div>
+                        
+                                <!-- Repeat Password input -->
+                                <div class="form-outline mb-4">
+                                    <label class="form-label" for="registerRepeatPassword">Repeat password</label>
+                                    <input type="password" id="registerRepeatPassword" class="form-control" />
+                                </div>
+                        
+                        
+                        
+                                <!-- Checkbox -->
+                                <div class="form-check d-flex justify-content-center mb-4">
+                                    <label class="form-check-label" for="registerCheck">
+                                    I have read and agree to the terms
+                                    </label>
+                                    <input class="form-check-input me-2" type="checkbox" value="" id="registerCheck" checked
+                                    aria-describedby="registerCheckHelpText" />
+                                </div>
+                        
+                                <!-- Submit button -->
+                                <button type="submit" class="btn btn-primary btn-block mb-3">Sign in</button>
+                            </form>
+                        </div>    
+                        </div>
+                    </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
     
   <!--Scripts-->
   <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>

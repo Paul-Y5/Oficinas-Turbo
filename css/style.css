@@ -30,3 +30,7 @@ body {
 .card-text{
     text-align: justify;
 }
+
+.color-blue {
+    background-color: #202A62;
+}

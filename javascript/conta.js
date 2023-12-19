@@ -10,7 +10,7 @@ var vm = function() {
     self.PendingOrders = ko.observableArray([])
 
     self.initiate = function() {
-        var user = JSON.parse(localStorage.getItem('activeAccount'))
+        var user = getActiveAccount()
         
         self.Username = ko.observable(user.Username)
         self.PhoneNumber = ko.observable(user.PhoneNumber)
@@ -30,7 +30,14 @@ $(document).ready(function() {
     var viewModel = new vm()
     ko.applyBindings(viewModel)
 
-    $('#myModal').on('shown.bs.modal', function () {
-        $('#myInput').trigger('focus')
+    $('#addVehicle').on('submit', event => {
+        var activeAccount = getActiveAccount()
+
+        if (!addCar(activeAccount.Username)) {
+        event.preventDefault()
+        event.stopPropagation()
+        }
+
+        event.target.classList.add('was-validated')
     })
 })

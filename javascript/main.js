@@ -5,8 +5,51 @@ function removeUser(u) {
     setUsers(newUsers)
 }
 
-function getCars(){
+function addCar(username){
+    var user = getUserByUsername(username)
+    if (user == undefined ){
+        console.log(user)
+        return false
+    }
 
+    var kms = $('#kmsInput').val()
+    var year = $('#yearInput').val()
+    var model = $('#modelInput').val()
+
+    newCar = {
+        'model':model,
+        'kms':kms,
+        'year':year
+    }
+
+    user.Cars.push(newCar)
+
+    updateUser(username,user)
+    return true
+}
+
+// Update User
+function updateUser(username,newData){
+    var users = getUsers()
+
+    users = users.map(element => {
+        if (element.Username == username) {
+            return newData
+        }
+        else {
+            return element
+        }
+    })
+
+    var activeUser = getActiveAccount()
+
+    console.log(activeUser.Username, username)
+    if (activeUser.Username == username) {
+        console.log('aaa')
+        localStorage.setItem('activeAccount',JSON.stringify(newData))
+    }
+
+    setUsers(users)
 }
 
 // Login/Register
@@ -126,7 +169,7 @@ $(document).ready(function(){
         event.stopPropagation()
         }
 
-        form.classList.add('was-validated')
+        event.target.classList.add('was-validated')
     })
 
     $('#signUpForm').on('submit', event => {
@@ -135,6 +178,6 @@ $(document).ready(function(){
         event.stopPropagation()
         }
   
-        form.classList.add('was-validated')
+        event.target.classList.add('was-validated')
     })
 })

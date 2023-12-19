@@ -1,3 +1,15 @@
+
+function removeUser(u) {
+    us = getUsers()
+    newUsers = removeItem(us,u)
+    setUsers(newUsers)
+}
+
+function getCars(){
+
+}
+
+// Login/Register
 function registerUser() {
     username = $('#usernameSignUp').val()
     password = $('#passwordSignUp').val()
@@ -38,12 +50,6 @@ function registerUser() {
         setUsers(users)
         return true
     }
-}
-
-function removeUser(u) {
-    us = getUsers()
-    newUsers = removeItem(us,u)
-    setUsers(newUsers)
 }
 
 function validateSignIn() {

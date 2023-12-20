@@ -1,3 +1,54 @@
+var vm = function() {
+
+    var self = this
+
+    //User Info
+
+    self.Username = ko.observable('')
+    self.PhoneNumber = ko.observable('')
+    self.Email = ko.observable('')
+    self.Adress = ko.observable('')
+    self.Cars = ko.observableArray([])
+    self.Orders = ko.observableArray([])
+    self.Password = ko.observable('')
+
+    //Nao sei
+    self.selectedCar = ko.observable('')
+
+    self.initiate = function() {
+        var user = getActiveAccount()
+        
+        self.Username(user.Username)
+        self.PhoneNumber(user.PhoneNumber)
+        self.Email(user.Email)
+        self.Adress(user.Adress)
+        self.Cars(user.Cars)
+        self.Orders(user.Orders)
+        self.Password(user.Password)
+
+        console.log("Active User:", user)
+        console.log("VM initialized. . .")
+    }
+
+    self.updateInfo = function (){
+        var newInfo = {
+            'Username' : self.Username(),
+            'Password' : self.Password(),
+            'PhoneNumber' : self.PhoneNumber(),
+            'Email' : self.Email(),
+            'Adress' : self.Adress(),
+            'Cars': self.Cars(),
+            'PendingOrders': self.Orders()
+        }
+
+        updateUser(getActiveAccount().Username,newInfo)
+        alert("Informacao alterada com sucesso")
+    }
+
+    self.initiate()
+}
+
+var viewModel = new vm()
 
 function removeUser(u) {
     us = getUsers()
@@ -43,9 +94,7 @@ function updateUser(username,newData){
 
     var activeUser = getActiveAccount()
 
-    console.log(activeUser.Username, username)
     if (activeUser.Username == username) {
-        console.log('aaa')
         localStorage.setItem('activeAccount',JSON.stringify(newData))
     }
 
@@ -80,7 +129,7 @@ function registerUser() {
         'Email' : email,
         'Adress' : adress,
         'Cars': [],
-        'PendingOrders': []
+        'Orders': []
     }
 
     var user = getUserByUsername(username)
@@ -89,6 +138,7 @@ function registerUser() {
         return false
     }
     else {
+        signIn(newUser)
         users.push(newUser)
         setUsers(users)
         return true
@@ -111,17 +161,31 @@ function validateSignIn() {
         return false
     }
 
-    localStorage.setItem('activeAccount', JSON.stringify(u))
+    signIn(u)
     return true
 }
 
-function singOut() {
-    localStorage.setItem('activeAccount', null)
+function signIn(u) {
+    viewModel.initiate()
+    localStorage.setItem('activeAccount', JSON.stringify(u))
+}
+
+function signOut() {
+    viewModel.initiate()
+    localStorage.setItem('activeAccount', '{}')
 }
 
 // Getters and setters
 function getActiveAccount(){
-    return JSON.parse(localStorage.getItem('activeAccount'))
+    var user = JSON.parse(localStorage.getItem('activeAccount'))
+
+    if (user == null) {
+        localStorage.setItem('activeAccount','{}')
+        return {}
+    }
+    else {
+        return user
+    }
 }
 
 function getUsers() { 
@@ -163,6 +227,8 @@ function removeItem(arr, item) {
 
 $(document).ready(function(){
 
+    ko.applyBindings(viewModel)
+
     $('#signInForm').on('submit', event => {
         if (!validateSignIn()) {
         event.preventDefault()
@@ -179,5 +245,49 @@ $(document).ready(function(){
         }
   
         event.target.classList.add('was-validated')
+    })
+
+    $('#addVehicle').on('submit', event => {
+        var activeAccount = getActiveAccount()
+
+        if (!addCar(activeAccount.Username)) {
+        event.preventDefault()
+        event.stopPropagation()
+        }
+
+        event.target.classList.add('was-validated')
+    })
+
+    $('#userInfoForm').on('submit', event => {
+        event.preventDefault()
+        event.stopPropagation()
+
+        viewModel.updateInfo()
+    })
+
+    $('#marcacaoForm').on('submit', event => {
+        event.preventDefault()
+        event.stopPropagation()
+
+        if (!event.target.checkValidity()) {
+            event.target.classList.add('was-validated')
+        }
+
+        var user = getActiveAccount()
+
+        newOrder = {
+            'Car': viewModel.selectedCar(),
+            'Date': $('#dateInput').val(),
+            'Description': $('#descriptionInput').val(),
+            'Status': 'Pending'
+        }
+
+        user.Orders.push(newOrder)
+        updateUser(user.Username,user)
+
+        alert('Order done sucessfully')
+
+        currentPath = window.location.href.substring(0,location.href.length-23)
+        location.replace(currentPath + 'conta.html')
     })
 })

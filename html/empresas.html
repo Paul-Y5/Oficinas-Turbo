@@ -23,8 +23,9 @@
                 <div class="navbar-nav">
                     <a class="nav-link" href="marcação.html">Marcações</a>
                     <a class="nav-link" href="orçamento.html">Orçamentos</a>
-                    <a class="nav-link" href="IPO.html">IPO</a>
                     <a class="nav-link" href="empresas.html">Empresas</a>
+                    <a class="nav-link" href="franchising.html">Franchisig</a>
+
                 </div>
             </div>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
@@ -44,7 +45,56 @@
                         Pedidos pendentes:
                     </div>
                     <div class="card-body">
-                        <div class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique aliquam fuga saepe itaque obcaecati porro beatae voluptatem harum neque nisi sed enim eos iusto quibusdam repudiandae provident, maiores, quisquam blanditiis.</div>
+                        <a href="#" title="Analisar pedido" style="text-decoration: none;">
+                            <div class="card mb-3">
+                                <div style="background-color: white;" class="card-body">
+                                    <div style="font-weight: bold; font-size: larger;">Tipo de pedido:</div>
+                                    <div data-bind="text: orderType">Orçamento</div>
+                                    <div style="font-weight: bold; font-size: larger;">Detalhes:</div>
+                                    <div>
+                                        <span style="font-weight: bold;">Matrícula: </span>
+                                        <span data-bind="text: matricula">23-AA-56</span>
+                                    </div>
+                                    <div>
+                                        <span style="font-weight: bold;">Marca: </span>
+                                        <span data-bind="text: marca">BMW</span>
+                                    </div>
+                                    <div>
+                                        <span style="font-weight: bold;">Modelo: </span>
+                                        <span data-bind="text: modelo">I8</span>
+                                    </div>
+                                    <div>
+                                        <span style="font-weight: bold;">Descrição: </span>
+                                        <span data-bind="text: description">Orçamento para pintura exterior</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#" title="Analisar pedido" style="text-decoration: none;">
+                            <div class="card mb-3">
+                                <div style="background-color: white;" class="card-body">
+                                    <div style="font-weight: bold; font-size: larger;">Tipo de pedido:</div>
+                                    <div data-bind="text: orderType">Agendamento manutenção</div>
+                                    <div style="font-weight: bold; font-size: larger;">Detalhes:</div>
+                                    <div>
+                                        <span style="font-weight: bold;">Veículo: </span>
+                                        <span data-bind="text: veículo">Carro</span>
+                                    </div>
+                                    <div>
+                                        <span style="font-weight: bold;">Modelo: </span>
+                                        <span data-bind="text: modelo">BMW</span>
+                                    </div>
+                                    <div>
+                                        <span style="font-weight: bold;">Data marcação: </span>
+                                        <span data-bind="text: data">12/01/2024</span>
+                                    </div>
+                                    <div>
+                                        <span style="font-weight: bold;">Descrição: </span>
+                                        <span data-bind="text: description">Gostaria de agendar uma mudança de óleo. Preferência entre as 15h e as 16h.</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -57,7 +107,66 @@
                                 Carros na oficina
                             </div>
                             <div class="card-body" style="background-color: #202A62; color: white;">
-                                <div class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque eaque aperiam reprehenderit eius? Iusto officia provident voluptatibus. Optio, officiis consectetur laborum possimus suscipit quidem repellat? Placeat natus aliquid ullam minima!</div>
+                                <a href="#" title="Ver carro" style="text-decoration: none;">
+                                    <div class="card mb-3">
+                                        <div style="background-color: white;" class="card-body">
+                                            <div>
+                                                <span style="font-weight: bold;">Veículo: </span>
+                                                <span data-bind="text: veículo">AUDI</span>
+                                            </div>
+                                            <div>
+                                                <span style="font-weight: bold;">Modelo: </span>
+                                                <span data-bind="text: modelo">R8</span>
+                                            </div>
+                                            <div>
+                                                <span style="font-weight: bold;">Motivo ocupação:  </span>
+                                                <span data-bind="text: data">Pintura</span>
+                                            </div>
+                                            <div>
+                                                <span style="font-weight: bold;">Data entrada:  </span>
+                                                <span data-bind="text: data">20/12/2023</span>
+                                            </div>
+                                            <div>
+                                                <span style="font-weight: bold;">Data prevista saída:  </span>
+                                                <span data-bind="text: data">27/12/2023</span>
+                                            </div>
+                                            <div>
+                                                <span style="font-weight: bold;">Descrição: </span>
+                                                <span data-bind="text: description">N/A</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>          
+                                <a href="#" title="Ver carro" style="text-decoration: none;">
+                                    <div class="card mb-3">
+                                        <div style="background-color: white;" class="card-body">
+                                            <div>
+                                                <span style="font-weight: bold;">Veículo: </span>
+                                                <span data-bind="text: veículo">Peugeot</span>
+                                            </div>
+                                            <div>
+                                                <span style="font-weight: bold;">Modelo: </span>
+                                                <span data-bind="text: modelo">Peugeot 2008</span>
+                                            </div>
+                                            <div>
+                                                <span style="font-weight: bold;">Motivo ocupação:  </span>
+                                                <span data-bind="text: data">Troca óleo</span>
+                                            </div>
+                                            <div>
+                                                <span style="font-weight: bold;">Data entrada:  </span>
+                                                <span data-bind="text: data">20/12/2023</span>
+                                            </div>
+                                            <div>
+                                                <span style="font-weight: bold;">Data prevista saída:  </span>
+                                                <span data-bind="text: data">21/12/2023</span>
+                                            </div>
+                                            <div>
+                                                <span style="font-weight: bold;">Descrição: </span>
+                                                <span data-bind="text: description">N/A</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>                      
                             </div>
                         </div>
                     </div>
@@ -65,11 +174,13 @@
                     <div class="col-md-12 mb-3">
                         <div class="card h-100">
                             <div class="card-header">
-                                <div>...</div>
+                                <div>Vistas agregadas</div>
                             </div>
                             <div class="card-body">
-                                <div class="card-text"><p class="text">
-                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil ratione ipsum distinctio officia numquam iste, ex incidunt, animi reiciendis autem ipsam sint perspiciatis sequi praesentium excepturi enim, obcaecati saepe.</p>
+                                <div class="card mb-3">
+                                    <div style="background-color: white;" class="card-body">
+                                        <span class="text-danger">Espaço reservado ao chefe de oficina! Se for o caso, por favor inicie sessão coma sua conta executiva <span><a href="#">aqui</a></span></span>
+                                    </div>
                                 </div>
                             </div>
                         </div> 

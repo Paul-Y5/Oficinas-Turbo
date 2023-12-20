@@ -9,11 +9,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
   <link href="../css/style.css" rel="stylesheet">
+  <link rel="shortcut icon" type="imagex/png" href="/images/logo.png">
+
 </head>
 <body>
     <nav class="navbar navbar-expand-lg custom-navbar">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.html"><img style="height:50px;" src="./imagens/logo.png"> </a>
+            <a class="navbar-brand" href="index.html"><img style="height:50px;" src="/images/logo.png"> </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -22,23 +24,91 @@
                     <a class="nav-link" href="marcação.html">Marcações</a>
                     <a class="nav-link" href="orçamento.html">Orçamentos</a>
                     <a class="nav-link" href="empresas.html">Empresas</a>
-                    <a class="nav-link" href="franchising.html">Franchisig</a>
+                    <a class="nav-link" href="franchising.html">Franchising</a>
                 </div>
             </div>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
                 <div class="navbar-nav">      
                     <a class="nav-link" href="SINGUP-Login.html">Log in</a>
                     <a class="nav-link" href="SINGUP-Login.html">Sign-Up</a>
-                    <a class="nav-link" href="conta.html"><img style="height:30px;" src="./imagens/log-in_icon.png"></a>
+                    <a class="nav-link" href="conta.html"><img style="height:30px;" src="/images/log-in_icon.png"></a>
                 </div>
             </div>
         </div>
     </nav>
 
-    <div class="container">
-        <h2>Franchising</h2>
-        <div>Franchising em Marcha: Acelere seu Sucesso com Oficinas Turbo, Onde a Inovação Desliza como um Caracol!</div>
-        <div>Faça-se franchisado</div>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-header">Estabilidade e Reconhecimento de Marca</div>
+                    <div class="card-body">
+                        <p class="card-text">Ao tornar-se parte da nossa franquia, está a associar-se a uma marca reconhecida e respeitada. Isto proporciona estabilidade ao seu negócio desde o início, facilitando a atração de clientes que confiam na qualidade e nos serviços oferecidos pela nossa marca.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-header">Plataforma Online Integrada</div>
+                    <div class="card-body">
+                        <p class="card-text">Diferenciamo-nos ao proporcionar uma plataforma online intuitiva e integrada ao nosso website. Esta funcionalidade inovadora permite que gerencie facilmente a sua oficina, desde agendamentos até acompanhamento de serviços. Para os clientes, significa uma experiência mais conveniente e eficiente.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-header">Suporte Técnico Online 24/7</div>
+                    <div class="card-body">
+                        <p class="card-text">Priorizamos o suporte aos nossos franchisados. Com o nosso suporte técnico online disponível 24/7, garantimos que qualquer problema operacional seja tratado rapidamente. Esta abordagem proporciona tranquilidade, permitindo que a sua oficina opere de forma eficiente em todos os momentos.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="row">
+            <div class="card">
+                <div class="card-header">Faça-se franchisado!</div>
+                <div class="card-body">
+                    <form>
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <label for="inputNome">Nome oficina:</label>
+                                <input type="text" class="form-control" id="inputNome" placeholder="Nome Completo" required>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label for="inputEmail">Email:</label>
+                                <input type="email" class="form-control" id="inputEmail" placeholder="oficina@gmail.com" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <label for="inputData">Data abertura:</label>
+                                <input type="date" class="form-control" id="inputData" required>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label for="inputEndereco">Endereço:</label>
+                                <input type="text" class="form-control" id="inputEndereco" placeholder="Rua, Número" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <label for="inputCidade">Cidade:</label>
+                                <input type="text" class="form-control" id="inputCidade" placeholder="Cidade" required>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label for="inputCoordenadas">Coordenadas:</label>
+                                <input type="text" class="form-control" id="inputCoordenadas" placeholder="Latitude, Longitude" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputTextoExtra">Extra:</label>
+                            <textarea class="form-control" id="inputTextoExtra" rows="3" placeholder="Escreva aqui as suas perguntas..."></textarea>
+                        </div>
+                        <button type="submit" class="btn mt-2" style="background-color: #202A62; color: white;">Enviar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
     
   <!--Scripts-->

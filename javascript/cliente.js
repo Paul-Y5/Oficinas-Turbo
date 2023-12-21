@@ -11,13 +11,17 @@ var vm = function() {
     self.Cars = ko.observableArray([])
     self.Orders = ko.observableArray([])
     self.Password = ko.observable('')
+    self.Shops = ko.observableArray([])
 
     //Nao sei
     self.selectedCar = ko.observable('')
+    self.selectedShop = ko.observable('')
 
     self.initiate = function() {
         var user = getActiveAccount()
-        
+        var shops = getShops()
+
+        self.Shops(shops)
         self.Username(user.Username)
         self.PhoneNumber(user.PhoneNumber)
         self.Email(user.Email)
@@ -66,11 +70,13 @@ function addCar(username){
     var kms = $('#kmsInput').val()
     var year = $('#yearInput').val()
     var model = $('#modelInput').val()
+    var mat = $('#matInput').val()
 
     newCar = {
         'model':model,
         'kms':kms,
-        'year':year
+        'year':year,
+        'mat':mat
     }
 
     user.Cars.push(newCar)
@@ -132,8 +138,7 @@ function registerUser() {
         'Orders': []
     }
 
-    var user = getUserByUsername(username)
-    if (user != undefined) {
+    if (getUserByUsername(username) != undefined) {
         alert('Já existe este username registrado')
         return false
     }
@@ -201,6 +206,19 @@ function getUsers() {
     }
 }
 
+function getShops() {
+    var shops = localStorage.getItem('shops')
+    
+    if (shops == null) {
+        setShops([])
+        return []
+    }
+
+    else {
+        return JSON.parse(shops)
+    }
+}
+
 function getUserByUsername(u) { 
     // Returns undefined is no users with said username are found
     return getUsers().filter(value => {return value.Username == u})[0]
@@ -208,6 +226,10 @@ function getUserByUsername(u) {
 
 function setUsers(newUsersList) {
     localStorage.setItem('users',JSON.stringify(newUsersList))
+}
+
+function setShops(newShopsList) {
+    localStorage.setItem('shops',JSON.stringify(newShopsList))
 }
 
 // Helper functions
@@ -243,7 +265,7 @@ $(document).ready(function(){
         event.preventDefault()
         event.stopPropagation()
         }
-  
+        
         event.target.classList.add('was-validated')
     })
 
@@ -279,7 +301,9 @@ $(document).ready(function(){
             'Car': viewModel.selectedCar(),
             'Date': $('#dateInput').val(),
             'Description': $('#descriptionInput').val(),
-            'Status': 'Pending'
+            'Status': 'Pending',
+            'Type':'Normal',
+            'Shop': viewModel.selectedShop()
         }
 
         user.Orders.push(newOrder)
@@ -288,6 +312,33 @@ $(document).ready(function(){
         alert('Order done sucessfully')
 
         currentPath = window.location.href.substring(0,location.href.length-23)
-        location.replace(currentPath + 'conta.html')
+        location.replace(currentPath + 'cliente.html')
+    })
+
+    $('#orcamentoForm').on('submit', event => {
+        event.preventDefault()
+        event.stopPropagation()
+
+        if (!event.target.checkValidity()) {
+            event.target.classList.add('was-validated')
+        }
+
+        var user = getActiveAccount()
+
+        newOrder = {
+            'Car': viewModel.selectedCar(),
+            'Description': $('#descriptionInput').val(),
+            'Status': 'Pending',
+            'Type':'Orcamento',
+            'PartsType': $('#partsTypeInput').val()
+        }
+
+        user.Orders.push(newOrder)
+        updateUser(user.Username,user)
+
+        alert('Order done sucessfully')
+
+        currentPath = window.location.href.substring(0,location.href.length-19)
+        location.replace(currentPath + 'cliente.html')
     })
 })

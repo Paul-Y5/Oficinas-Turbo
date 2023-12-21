@@ -9,29 +9,31 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
   <link href="../css/style.css" rel="stylesheet">
-  <link rel="shortcut icon" type="imagex/png" href="/images/logo.png">
+  <link rel="shortcut icon" type="imagex/png" href="../images/logo.png">
 
 </head>
 <body>
     <nav class="navbar navbar-expand-lg custom-navbar">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.html"><img style="height:50px;" src="/images/logo.png"> </a>
+            <a class="navbar-brand" href="index.html"><img style="height:50px;" src="../images/logo.png"> </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link" href="marcação.html">Marcações</a>
-                    <a class="nav-link" href="orçamento.html">Orçamentos</a>
-                    <a class="nav-link" href="empresas.html">Empresas</a>
+                    <a class="nav-link" href="index.html">Marcações</a>
+                    <a class="nav-link" href="index.html">Orçamentos</a>
                     <a class="nav-link" href="franchising.html">Franchising</a>
                 </div>
             </div>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-                <div class="navbar-nav">      
-                    <a class="nav-link" href="SINGUP-Login.html">Log in</a>
-                    <a class="nav-link" href="SINGUP-Login.html">Sign-Up</a>
-                    <a class="nav-link" href="conta.html"><img style="height:30px;" src="/images/log-in_icon.png"></a>
+                <div class="navbar-nav">
+                    <!-- ko if: Name() == undefined -->   
+                    <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#modal">Entrar na plataforma</a>
+                    <!-- /ko -->
+                    <!-- ko if: Name() != undefined -->   
+                    <a href="empresas.html" class="nav-link">Entrar na plataforma</a>
+                    <!-- /ko -->
                 </div>
             </div>
         </div>
@@ -69,7 +71,7 @@
             <div class="card">
                 <div class="card-header">Faça-se franchisado!</div>
                 <div class="card-body">
-                    <form>
+                    <form class="needs-validation" id="franchiseSignUp">
                         <div class="form-row">
                             <div class="form-group col-md-12">
                                 <label for="inputNome">Nome oficina:</label>
@@ -100,12 +102,33 @@
                                 <input type="text" class="form-control" id="inputCoordenadas" placeholder="Latitude, Longitude" required>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="inputTextoExtra">Extra:</label>
-                            <textarea class="form-control" id="inputTextoExtra" rows="3" placeholder="Escreva aqui as suas perguntas..."></textarea>
-                        </div>
                         <button type="submit" class="btn mt-2" style="background-color: #202A62; color: white;">Enviar</button>
                     </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="modal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title">Sign In</h1>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <form class="form needs-validation" id="signInForm">
+                            <!-- Name input -->
+                            <div class="form-outline mb-3">
+                                <label class="form-label" for="nameSignIn">Name</label>
+                                <input type="text" id="nameSignIn" class="form-control" />
+                            </div>
+                            <!-- Submit button -->
+                            <div class="row">   
+                                <button type="submit" class="btn btn-primary btn-block mb-3">Sign in</button>
+                            </div>
+                        </form>
+                    </div>    
                 </div>
             </div>
         </div>
@@ -115,5 +138,6 @@
   <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
   <script src="https://ajax.aspnetcdn.com/ajax/knockout/knockout-3.5.0.js"></script>
+  <script src="../javascript/empresas.js"></script>
 </body>
 </html>

@@ -31,7 +31,7 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
                 <div class="navbar-nav">      
                     <!-- Correct for Bootstrap 5 -->
-                    <button class="nav-link" data-bs-toggle="modal" data-bs-target="#modal">Sign in/ SIgn Up</button>
+                    <a class="nav-link" data-bind="text: Name"></a>
                     <a class="nav-link" href="cliente.html"><img style="height:30px;" src="../images/log-in_icon.png"></a>
                 </div>
             </div>
@@ -41,9 +41,7 @@
         <div class="row row-cols-1 row-cols-md-3 g-4 mt-3">
             <div class="col-md-auto d-flex">
                 <div class="card mb-3 flex-grow-1">
-                    <div class="card-header" >
-                        Pedidos pendentes:
-                    </div>
+                    <div class="card-header" data-bind="text: 'Pedidos pendentes (' + Orders().length + ')'"></div>
                     <!-- ko if: Orders().length != 0 -->
                     <!-- ko foreach: Orders -->
                     <div class="card-body">
@@ -70,6 +68,7 @@
                                         <span data-bind="text: Description"></span>
                                     </div>
                                 </div>
+                                <button type="button" class="btn btn-secondary" data-bind="click: checkInCar.bind($data,$root.Name())">Check In</button>
                             </div>
                         </a>
                     </div>
@@ -87,9 +86,7 @@
                 <div class="row">
                     <div class="col-md-auto mb-3">
                         <div class="card h-100">
-                            <div class="card-header">
-                                Carros na oficina
-                            </div>
+                            <div class="card-header" data-bind="text: 'Carros na Oficina (' + Cars().length + ')'"></div>
                             <div class="card-body" style="background-color: #202A62; color: white;">
                                 <!-- ko foreach: Cars -->
                                 <div class="card mb-3 d-block bg-white">
@@ -114,24 +111,13 @@
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="col-md-12 mb-3">
-                        <div class="card h-100">
-                            <div class="card-header">
-                                <div>Vistas agregadas</div>
-                            </div>
-                            <div class="card-body">
-                                <div class="card mb-3">
-                                    <div style="background-color: white;" class="card-body">
-                                        <span class="text-danger">Espaço reservado ao chefe de oficina! Se for o caso, por favor inicie sessão coma sua conta executiva <span><a href="#">aqui</a></span></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> 
-                    </div>
             </div>
         </div>
 
+        </div>
+
+        <div class="container justify-content-end">
+            <a href="index.html" onclick="signOut()" class="btn btn-secondary">Sign out</a>
         </div>
     </div>
     <!--Scripts-->

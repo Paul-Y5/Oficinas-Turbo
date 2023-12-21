@@ -34,6 +34,38 @@ var vm = function() {
 
 var viewModel = new vm()
 
+function checkInCar(n,order) {
+    var shop = getShopByName(n)
+
+    var cars = shop.Cars
+    cars.push(order.Car)
+
+    updateShop(n,shop)
+
+    viewModel.initiate()
+}
+
+function updateShop(name,newData){
+    var shops = getShops()
+
+    shops = shops.map(element => {
+        if (element.Username == username) {
+            return newData
+        }
+        else {
+            return element
+        }
+    })
+
+    var activeShop = getActiveAccount()
+
+    if (activeShop.Name == name) {
+        localStorage.setItem('activeShop',JSON.stringify(newData))
+    }
+
+    setShops(shops)
+}
+
 function registerShop() {
     var Name = $('#inputNome').val()
     var Email = $('#inputEmail').val()
@@ -213,12 +245,13 @@ $(document).ready(function(){
         event.preventDefault()
         event.stopPropagation()
 
-        var shop = getShopByName($('#nameSignInS'))
+        var shop = getShopByName($('#nameSignIn').val())
         if (shop == undefined) {
             alert('Oficina não registrada')
         }
         else {
-            currentPath = window.location.href.substring(0,location.href.length-19)
+            signIn(shop)
+            currentPath = window.location.href.substring(0,location.href.length-16)
             location.replace(currentPath + 'empresas.html')
         }
 

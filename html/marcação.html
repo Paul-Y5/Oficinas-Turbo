@@ -55,7 +55,28 @@
                 <select class="form-select form-control" id='shopInput' name='shop' aria-describedby='shopLabel shopError' minlength="3"
                 data-bind="options:Shops, optionsText:'Name',value:selectedShop, optionsCaption:'Choose the shop'"  required></select>
                 <div class='invalid-feedback' id='shopError'>
-                  Tem de ter pelo menos 3 caracteres
+                  Seleciona 1
+                </div>
+              </div>
+
+              <div class="container col-12">
+                <label for='TypeMarcInput' id='shopLabel'>Tipo de Marcação</label>
+                <select class="form-select form-control" id='TypeMarcInput' name='MarcShop' aria-describedby='shopLabel shopError' minlength="3" onchange="toggleFileUpload()" required>
+                  <option value="0">Choose one...</option>
+                  <option value="1">Manutenção</option>
+                  <option value="2">IPO</option>
+                  <option value="3">Revisão</option>
+                  <option value="4">Outro</option>
+                </select>
+                <div class='invalid-feedback' id='shopError'>
+                  Seleciona 1
+                </div>
+                <div class="container col-6" id="fileUploadContainer" style="display: none;">
+                  <label for="fileInput" id="fileLabel">Upload de Ficheiro</label>
+                  <input type="file" class="form-control" id="fileInput" name="file" aria-describedby="fileLabel fileError">
+                  <div class="invalid-feedback" id="fileError">
+                      Selecione um arquivo válido.
+                  </div>
                 </div>
               </div>
 

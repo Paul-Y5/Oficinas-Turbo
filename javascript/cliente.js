@@ -213,7 +213,7 @@ function getShops() {
         setShops([])
         return []
     }
-
+    
     else {
         return JSON.parse(shops)
     }
@@ -247,8 +247,13 @@ function removeItem(arr, item) {
     })
 }
 
-$(document).ready(function(){
+function toggleFileUpload() {
+  var typeMarcInputValue = $("#TypeMarcInput").val();
+  $("#fileUploadContainer").toggle(typeMarcInputValue == 2);
+}
 
+$(document).ready(function(){
+    
     ko.applyBindings(viewModel)
 
     $('#signInForm').on('submit', event => {
@@ -313,6 +318,7 @@ $(document).ready(function(){
 
         currentPath = window.location.href.substring(0,location.href.length-23)
         location.replace(currentPath + 'cliente.html')
+        
     })
 
     $('#orcamentoForm').on('submit', event => {
